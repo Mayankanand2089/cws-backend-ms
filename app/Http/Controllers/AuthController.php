@@ -32,10 +32,10 @@ class AuthController extends Controller
    public function login(Request $req){
      $data = $req->only("email","password");
      if(Auth::attempt($data)){
-      //  $success['token'] = $this-> apiToken;
+       $success['token'] = $this-> apiToken;
        $success['name'] = Auth::user()->name;
        $success['msg'] = "login successfully";
-     //$success['status'] = "true";
+       $success['status'] = "true";
        return response()->json($success,200);
       }
      else{
